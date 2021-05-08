@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>Dataf</id>
+    <version>1.0.0-beta</version>
+    <title>Dataf</title>
+    <authors>natoriusan</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="file">LICENSE.txt</license>
+    <projectUrl>https://github.com/natoriusan/Dataf</projectUrl>
+    <!--<icon></icon>-->
+    <description>This is a library to create data.</description>
+    <releaseNotes>First version</releaseNotes>
+    <copyright>© 2021 natoriusan</copyright>
+    <!--<tags></tags>-->
+  </metadata>
+  <files>
+      <file src="../LICENSE.txt" target="" />
+  </files>
+</package>
