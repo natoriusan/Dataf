@@ -15,7 +15,7 @@ let XMLExporter =
         attribute (cu{ before "\""; after "\""; separator " "; connector "\"=\"" })
         child (cu{ separator "\n"; indent "    " })
         dataStyle
-            (fun data -> data.ToString())
+            (fun data -> $"<value>{data.ToString()}</value>")
     }
 
 
