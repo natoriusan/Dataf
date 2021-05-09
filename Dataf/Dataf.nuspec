@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Dataf</id>
-    <version>1.0.0-beta2</version>
+    <version>1.0.0-beta3</version>
     <title>Dataf</title>
     <authors>natoriusan</authors>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/natoriusan/Dataf</projectUrl>
     <!--<icon></icon>-->
     <description>This is a library to create data.</description>
-    <releaseNotes>Change XML exporter</releaseNotes>
+    <releaseNotes>Correct the method names</releaseNotes>
     <copyright>© 2021 natoriusan</copyright>
     <!--<tags></tags>-->
   </metadata>
