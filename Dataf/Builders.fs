@@ -61,7 +61,7 @@ type euild(?targetExporter:exporter) =
         e
 
     [<CustomOperation ("dataStyle")>]
-    member this.datastyle(e:exporter, dStyle) =
+    member this.dataStyle(e:exporter, dStyle) =
         e.dataStyle <- dStyle
         e
 
@@ -89,7 +89,7 @@ type cuild(?targetFormatConfig:formatConfig) =
         | None   -> formatConfig()
 
     [<CustomOperation ("separator")>]
-    member this.datastyle(f:formatConfig, sep) =
+    member this.separator(f:formatConfig, sep) =
         f.separator <- sep
         f
 
