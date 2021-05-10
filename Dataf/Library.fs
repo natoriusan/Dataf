@@ -146,8 +146,8 @@ type exporter () =
         if dataObj.childData.Length > 0  then addReplaceConditions "c" else addRemoveConditions "c"
         if dataObj.values.Length > 0     then addReplaceConditions "v" else addRemoveConditions "v"
 
-        let replaceRegex = Regex($"""(?<=([^acv`]|^)(``)*|[acv](``)*`)`({ String.concat "|" replaceConditions })`(?=`(``)*[acv]|(``)*([^`]|$))""", RegexOptions.Singleline)
-        let removeRegex  = Regex($"""(?<=([^acv`]|^)(``)*|[acv](``)*`)`({ String.concat "|" removeConditions  })`(?=`(``)*[acv]|(``)*([^`]|$))""", RegexOptions.Singleline)
+        let replaceRegex = Regex($"""(?<=([^nacv`]|^)(``)*|[nacv](``)*`)`({ String.concat "|" replaceConditions })`(?=`(``)*[nacv]|(``)*([^`]|$))""", RegexOptions.Singleline)
+        let removeRegex  = Regex($"""(?<=([^nacv`]|^)(``)*|[nacv](``)*`)`({ String.concat "|" removeConditions  })`(?=`(``)*[nacv]|(``)*([^`]|$))""", RegexOptions.Singleline)
 
         for _ in 0..lreplaceCount do
             str <- replaceRegex.Replace(str, fun (m:Match) -> m.Groups.["value"].Value)
