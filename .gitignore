@@ -407,3 +407,5 @@ ASALocalRun/
 
 
 nugetOutput/
+/docs/_build/
+.vscode/
