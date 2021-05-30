@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Dataf</id>
-    <version>1.0.0-beta4</version>
+    <version>1.0.0</version>
     <title>Dataf</title>
     <authors>natoriusan</authors>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/natoriusan/Dataf</projectUrl>
     <!--<icon></icon>-->
     <description>This is a library to create data.</description>
-    <releaseNotes>Fix the regex replacement bug</releaseNotes>
+    <releaseNotes>First stable version</releaseNotes>
     <copyright>© 2021 natoriusan</copyright>
     <!--<tags></tags>-->
   </metadata>
