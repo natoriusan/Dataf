@@ -1,6 +1,6 @@
-﻿module Dataf.Exporters
+﻿module FsDatali.Exporters
 
-open Dataf.Computation
+open FsDatali.Computation
 
 
 let XMLExporter =
@@ -15,7 +15,7 @@ let XMLExporter =
         attribute (cu{ before "\""; after "\""; separator " "; connector "\"=\"" })
         child (cu{ separator "\n"; indent "    " })
         dataStyle
-            (fun data -> $"<value>{data.ToString()}</value>")
+            (fun data -> data.ToString())
     }
 
 

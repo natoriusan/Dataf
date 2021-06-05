@@ -1,44 +1,44 @@
-﻿module Dataf.Computation
+﻿module FsDatali.Computation
 
 
-type fuild(?targetData:dataf) =
+type fuild(?targetData:datali) =
     member this.Yield (_) =
         match targetData with
         | Some d -> d
-        | None   -> dataf()
+        | None   -> datali()
         
     [<CustomOperation ("attributes")>]
-    member this.attributes(dataObj:dataf, attributes) =
+    member this.attributes(dataObj:datali, attributes) =
         dataObj.attributes <- attributes
         dataObj
 
     [<CustomOperation ("addAttribute")>]
-    member this.addAttribute(dataObj:dataf, attr) =
+    member this.addAttribute(dataObj:datali, attr) =
         dataObj.addAttribute attr
         dataObj
 
     [<CustomOperation ("children")>]
-    member this.children(dataObj:dataf, children) =
+    member this.children(dataObj:datali, children) =
         dataObj.childData <- children
         dataObj
 
     [<CustomOperation ("addChild")>]
-    member this.addChild(dataObj:dataf, child:dataf) =
+    member this.addChild(dataObj:datali, child:datali) =
         dataObj.addChild child.name child
         dataObj
 
     [<CustomOperation ("name")>]
-    member this.name(dataObj:dataf, name) =
+    member this.name(dataObj:datali, name) =
         dataObj.name <- name
         dataObj
 
     [<CustomOperation ("values")>]
-    member this.values(dataObj:dataf, values) =
+    member this.values(dataObj:datali, values) =
         dataObj.values <- values
         dataObj
 
     [<CustomOperation ("addValue")>]
-    member this.addValue(dataObj:dataf, value) =
+    member this.addValue(dataObj:datali, value) =
         dataObj.addValue value
         dataObj
 
@@ -61,7 +61,7 @@ type euild(?targetExporter:exporter) =
         e
 
     [<CustomOperation ("dataStyle")>]
-    member this.dataStyle(e:exporter, dStyle) =
+    member this.datastyle(e:exporter, dStyle) =
         e.dataStyle <- dStyle
         e
 
@@ -89,7 +89,7 @@ type cuild(?targetFormatConfig:formatConfig) =
         | None   -> formatConfig()
 
     [<CustomOperation ("separator")>]
-    member this.separator(f:formatConfig, sep) =
+    member this.datastyle(f:formatConfig, sep) =
         f.separator <- sep
         f
 

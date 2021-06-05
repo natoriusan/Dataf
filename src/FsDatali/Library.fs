@@ -1,12 +1,12 @@
-﻿namespace Dataf
+﻿namespace FsDatali
 
 open System
 open System.Text.RegularExpressions
 open type System.Text.RegularExpressions.Regex
 
 
-type dataf (?values:obj array, ?attributes:(string * string) array) =
-    let mutable lchildData:dataf array = [||]
+type datali (?values:obj array, ?attributes:(string * string) array) =
+    let mutable lchildData:datali array = [||]
     let mutable lname = ""
     let mutable lvalues =
         match values with
@@ -34,7 +34,7 @@ type dataf (?values:obj array, ?attributes:(string * string) array) =
                     | (n, _) when n = name -> lattr <- Array.append lattr.[..i-1] lattr.[i+1..]
                     | _                    -> 0 |> ignore
 
-    member this.addChild name (value:dataf) =
+    member this.addChild name (value:datali) =
         if value.name = "" then
             value.name <- name
         lchildData <- Array.append lchildData [| value |]
@@ -68,7 +68,7 @@ type dataf (?values:obj array, ?attributes:(string * string) array) =
         with get index =
             lchildData.[Array.IndexOf(this.childNames, index)]
 
-        and  set index (value:dataf) =
+        and  set index (value:datali) =
             let arrayIndex = Array.IndexOf(this.childNames, index)
             if arrayIndex = -1 then
                 if value.name = "" then
@@ -119,7 +119,7 @@ type exporter () =
     let mutable lattr  = formatConfig ()
     let mutable lchild = formatConfig ()
 
-    let mutable lschema:dataf -> string =
+    let mutable lschema:datali -> string =
         fun dataObj ->
             ""
     let mutable ldataStyle:obj -> string =
@@ -128,7 +128,7 @@ type exporter () =
                 | _ -> "\"" + o.ToString () + "\""
 
 
-    member this.export (dataObj:dataf) =
+    member this.export (dataObj:datali) =
         let mutable str = this.schema (dataObj)
 
         // replace `nn`, `aa`, `cc` and `vv`
@@ -146,8 +146,8 @@ type exporter () =
         if dataObj.childData.Length > 0  then addReplaceConditions "c" else addRemoveConditions "c"
         if dataObj.values.Length > 0     then addReplaceConditions "v" else addRemoveConditions "v"
 
-        let replaceRegex = Regex($"""(?<=([^nacv`]|^)(``)*|[nacv](``)*`)`({ String.concat "|" replaceConditions })`(?=`(``)*[nacv]|(``)*([^`]|$))""", RegexOptions.Singleline)
-        let removeRegex  = Regex($"""(?<=([^nacv`]|^)(``)*|[nacv](``)*`)`({ String.concat "|" removeConditions  })`(?=`(``)*[nacv]|(``)*([^`]|$))""", RegexOptions.Singleline)
+        let replaceRegex = Regex($"""(?<=([^acv`]|^)(``)*|[acv](``)*`)`({ String.concat "|" replaceConditions })`(?=`(``)*[acv]|(``)*([^`]|$))""", RegexOptions.Singleline)
+        let removeRegex  = Regex($"""(?<=([^acv`]|^)(``)*|[acv](``)*`)`({ String.concat "|" removeConditions  })`(?=`(``)*[acv]|(``)*([^`]|$))""", RegexOptions.Singleline)
 
         for _ in 0..lreplaceCount do
             str <- replaceRegex.Replace(str, fun (m:Match) -> m.Groups.["value"].Value)
